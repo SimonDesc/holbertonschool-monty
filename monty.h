@@ -33,14 +33,12 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include <unistd.h>
 
 int global_value;
 
 void push(stack_t **stack, unsigned int line_number);
-
-void read_line(char *line, int nb_line);
+void read_line(char *line, int nb_line, stack_t **stack);
 void pall(stack_t **stack, unsigned int line_number);
 void remove_newline(char *str);
 

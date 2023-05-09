@@ -11,6 +11,7 @@ int main(void)
 	size_t len = 0;
 	ssize_t nread;
 	int nb_line = 1;
+	stack_t *stack = NULL;
 
 	stream = fopen("bytecodes/00.m", "r");
 
@@ -19,7 +20,7 @@ int main(void)
 		while ((nread = getline(&line, &len, stream)) != -1)
 		{
 			remove_newline(line);
-			read_line(line, nb_line);
+			read_line(line, nb_line, &stack);
 			nb_line++;
 		}
 	}
@@ -33,17 +34,18 @@ int main(void)
 	return (0);
 }
 
-void read_line(char *line, int nb_line)
+void read_line(char *line, int nb_line, stack_t **stack)
 {
 	char *saveptr;
 	char *token = NULL;
 	int i = 0;
-	stack_t *stack = NULL;
+	
 
 	instruction_t instruction[] = {
 	    {"push", push},
 	    {"pall", pall},
-	    {NULL, NULL}};
+	    {NULL, NULL}
+	    };
 
 	token = strtok_r(line, " ", &saveptr);
 	char *value_token = strtok_r(NULL, " ", &saveptr);
@@ -56,7 +58,7 @@ void read_line(char *line, int nb_line)
 	{
 		if (strcmp(instruction[i].opcode, token) == 0)
 		{
-			instruction[i].f(&stack, nb_line);
+			instruction[i].f(stack, nb_line);
 		}
 		i++;
 	}
@@ -79,13 +81,12 @@ void push(stack_t **stack, unsigned int line_number)
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
-	if (*stack)
+	if (*stack != NULL)
 	{
 		(*stack)->prev = new_node;
 	}
 
 	*stack = new_node;
-	printf("Element ajouté à la pile : %d\n", value);
 }
 
 void pall(stack_t **stack, unsigned int line_number)
@@ -93,7 +94,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 	stack_t *current = *stack;
-	
+
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
