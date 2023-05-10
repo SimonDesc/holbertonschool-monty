@@ -11,9 +11,8 @@ int main(int argc, char *argv[])
 	ssize_t nread;
 	int nb_line = 1;
 	stack_t *stack = NULL;
-	
 
-	if (argc < 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
