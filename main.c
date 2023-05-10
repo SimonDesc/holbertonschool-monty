@@ -30,7 +30,10 @@ int main(int argc, char *argv[])
 		while ((nread = getline(&line, &len, global_stream)) != -1)
 		{
 			remove_newline(line);
-			read_line(line, nb_line, &stack);
+			if (is_empty(line) == 0)
+			{
+				read_line(line, nb_line, &stack);
+			}
 			nb_line++;
 			global_stack = stack;
 		}

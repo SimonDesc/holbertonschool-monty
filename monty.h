@@ -46,4 +46,5 @@ void remove_newline(char *str);
 int checker(char *value_token, int nb_line);
 void free_nodes(stack_t *head);
 void cleanup(void);
+int is_empty(const char *str);
 #endif

@@ -28,4 +28,21 @@ void free_nodes(stack_t *stack)
 }
 
 
+/**
+ * is_empty - Checks if a string is empty or contains only whitespace
+ * @str: The string to check
+ *
+ * Return: 1 if the string is empty or contains only whitespace, 0 otherwise
+ */
+int is_empty(const char *str)
+{
+	while (*str != '\0')
+	{
+		if (!isspace(*str))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
 
