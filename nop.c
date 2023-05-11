@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * Pop - The function does nothing and takes in a stack
+ * nop - The function does nothing and takes in a stack
  *  and line number as parameters.
  * @stack: The stack parameter is a pointer to a pointer
  * to the top of the stack. It is used to access and manipulate

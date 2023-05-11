@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * Add - The function adds the top two elements of
+ * add - The function adds the top two elements of
  * a stack and replaces them with their sum.
  * @stack: A pointer to a pointer to the top of the stack.
  * @line_number: The line number is an unsigned integer
