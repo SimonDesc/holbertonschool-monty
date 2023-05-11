@@ -23,6 +23,13 @@ void mod(stack_t **stack, unsigned int line_number)
 	stack_t *first = *stack;
 	stack_t *second = first->next;
 
+	if (first->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		cleanup();
+		exit(EXIT_FAILURE);
+	}
+
 	a = second->n;
 	b = first->n;
 	a = a % b;
