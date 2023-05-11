@@ -12,6 +12,11 @@ void read_line(char *line, int nb_line, stack_t **stack)
 	instruction_t instruction[] = {
 	    {"push", push},
 	    {"pall", pall},
+	    {"pint", pint},
+	    {"pop", pop},
+	    {"swap", swap},
+	    {"add", add},
+	    {"nop", nop},
 	    {NULL, NULL}};
 
 	token = strtok_r(line, " ", &saveptr);

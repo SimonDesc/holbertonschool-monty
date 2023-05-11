@@ -40,8 +40,14 @@ typedef struct instruction_s
 
 
 void push(stack_t **stack, unsigned int line_number);
-void read_line(char *line, int nb_line, stack_t **stack);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+
+void read_line(char *line, int nb_line, stack_t **stack);
 void remove_newline(char *str);
 int checker(char *value_token, int nb_line);
 void free_nodes(stack_t *head);
