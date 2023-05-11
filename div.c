@@ -32,7 +32,7 @@ void divi(stack_t **stack, unsigned int line_number)
 
 	a = second->n;
 	b = first->n;
-	a = b / a;
+	a = a / b;
 	second->n = a;
 	*stack = second;
 	free(first);
