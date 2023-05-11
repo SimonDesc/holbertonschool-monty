@@ -3,7 +3,20 @@
 FILE *global_stream = NULL;
 stack_t *global_stack = NULL;
 
-
+/**
+ * main - This function reads a file line by line, removes newlines,
+ * checks if the line is empty, and then
+ * reads the line and executes the corresponding command.
+ *
+ * @argc: The number of arguments passed to the program, including
+ * the name of the program itself.
+ * @argv: argv is a pointer to an array of characters that
+ * represent the command-line arguments
+ * passed to the program. In this specific code,
+ * it is used to pass the name of the file to be opened
+ * and read.
+ * Return: an integer value of 0.
+ */
 int main(int argc, char *argv[])
 {
 	char *line = NULL;
@@ -42,26 +55,22 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
-
+/**
+ * cleanup - The function "cleanup" closes a file
+ * stream and frees memory allocated for a stack.
+ */
 void cleanup(void)
 {
-	
-    if (global_stream != NULL)
-    {	
+
+	if (global_stream != NULL)
+	{
 		fclose(global_stream);
 		global_stream = NULL;
-    }
+	}
 
-    if (global_stack != NULL)
-    {
+	if (global_stack != NULL)
+	{
 		free_nodes(global_stack);
 		global_stack = NULL;
-    }
+	}
 }
-
-
-
-
-
-
-

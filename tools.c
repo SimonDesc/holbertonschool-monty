@@ -1,8 +1,15 @@
 #include "monty.h"
 
+/**
+ * remove_newline - The function removes the newline character
+ * from a string if it exists.
+ * @str: A pointer to a character array (string)
+ * that may contain a newline character.
+ */
 void remove_newline(char *str)
 {
 	char *newline = strchr(str, '\n');
+
 	if (newline)
 	{
 		*newline = '\0';
@@ -12,7 +19,7 @@ void remove_newline(char *str)
 
 /**
  * free_nodes - Frees memory allocated for each node in a linked list
- * @head: A pointer to the head of the linked list
+ * @stack: A pointer to the head of the linked list
  */
 void free_nodes(stack_t *stack)
 {

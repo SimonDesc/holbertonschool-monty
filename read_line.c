@@ -1,5 +1,14 @@
 #include "monty.h"
 
+/**
+ * read_line - The function reads a line of input,
+ * identifies the corresponding instruction, and executes it with
+ * the given arguments.
+ *
+ * @line: A string containing the instruction to be executed.
+ * @nb_line: The line number of the current instruction being read.
+ * @stack: A pointer to a stack data structure.
+ */
 void read_line(char *line, int nb_line, stack_t **stack)
 {
 	char *saveptr;
@@ -8,19 +17,10 @@ void read_line(char *line, int nb_line, stack_t **stack)
 	int i = 0;
 	bool found = false;
 	int arg = 0;
-
-	instruction_t instruction[] = {
-	    {"push", push},
-	    {"pall", pall},
-	    {"pint", pint},
-	    {"pop", pop},
-	    {"swap", swap},
-	    {"add", add},
-	    {"nop", nop},
-	    {NULL, NULL}};
+	instruction_t instruction[] = {{"push", push}, {"pall", pall}, {"pint", pint},
+	{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
 
 	token = strtok_r(line, " ", &saveptr);
-	
 
 	while (instruction[i].opcode != NULL)
 	{
