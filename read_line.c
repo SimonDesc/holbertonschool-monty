@@ -30,9 +30,12 @@ void read_line(char *line, int nb_line, stack_t **stack)
 			if (strcmp(token, "push") == 0)
 			{
 				arg = checker(value_token, nb_line);
+				instruction[i].f(stack, arg);
+				found = true;
+				break;
 			}
 
-			instruction[i].f(stack, arg);
+			instruction[i].f(stack, nb_line);
 			found = true;
 			break;
 		}
