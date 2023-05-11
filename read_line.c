@@ -18,7 +18,8 @@ void read_line(char *line, int nb_line, stack_t **stack)
 	bool found = false;
 	int arg = 0;
 	instruction_t instruction[] = {{"push", push}, {"pall", pall}, {"pint", pint},
-	{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}};
+	{"mul", mul}, {"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
+	{"div", divi}, {"sub", sub}, {"mod", mod}, {NULL, NULL}};
 
 	token = strtok_r(line, " ", &saveptr);
 
